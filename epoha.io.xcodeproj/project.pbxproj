@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C8DC3C82489647100D0719E /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C72489647100D0719E /* Shimmer.swift */; };
+		6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C924896A0300D0719E /* LoginView.swift */; };
 		6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D92248829CE00CE4E7D /* AppDelegate.swift */; };
 		6CE17D95248829CE00CE4E7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */; };
 		6CE17D98248829CE00CE4E7D /* epoha_io.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D96248829CE00CE4E7D /* epoha_io.xcdatamodeld */; };
-		6CE17D9A248829CE00CE4E7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D99248829CE00CE4E7D /* ContentView.swift */; };
+		6CE17D9A248829CE00CE4E7D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D99248829CE00CE4E7D /* Home.swift */; };
 		6CE17D9C248829D400CE4E7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE17D9B248829D400CE4E7D /* Assets.xcassets */; };
 		6CE17D9F248829D400CE4E7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE17D9E248829D400CE4E7D /* Preview Assets.xcassets */; };
 		6CE17DA2248829D400CE4E7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE17DA0248829D400CE4E7D /* LaunchScreen.storyboard */; };
+		6CE17DAC2488401000CE4E7D /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17DAB2488401000CE4E7D /* HeaderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C8DC3C72489647100D0719E /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		6C8DC3C924896A0300D0719E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6CE17D8F248829CE00CE4E7D /* epoha.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epoha.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE17D92248829CE00CE4E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6CE17D97248829CE00CE4E7D /* epoha_io.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = epoha_io.xcdatamodel; sourceTree = "<group>"; };
-		6CE17D99248829CE00CE4E7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6CE17D99248829CE00CE4E7D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		6CE17D9B248829D400CE4E7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CE17D9E248829D400CE4E7D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6CE17DA1248829D400CE4E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CE17DA3248829D400CE4E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CE17DAB2488401000CE4E7D /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,10 @@
 			children = (
 				6CE17D92248829CE00CE4E7D /* AppDelegate.swift */,
 				6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */,
-				6CE17D99248829CE00CE4E7D /* ContentView.swift */,
+				6CE17D99248829CE00CE4E7D /* Home.swift */,
+				6CE17DAB2488401000CE4E7D /* HeaderBar.swift */,
+				6C8DC3C72489647100D0719E /* Shimmer.swift */,
+				6C8DC3C924896A0300D0719E /* LoginView.swift */,
 				6CE17D9B248829D400CE4E7D /* Assets.xcassets */,
 				6CE17DA0248829D400CE4E7D /* LaunchScreen.storyboard */,
 				6CE17DA3248829D400CE4E7D /* Info.plist */,
@@ -149,9 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE17DAC2488401000CE4E7D /* HeaderBar.swift in Sources */,
+				6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */,
+				6C8DC3C82489647100D0719E /* Shimmer.swift in Sources */,
 				6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */,
 				6CE17D98248829CE00CE4E7D /* epoha_io.xcdatamodeld in Sources */,
-				6CE17D9A248829CE00CE4E7D /* ContentView.swift in Sources */,
+				6CE17D9A248829CE00CE4E7D /* Home.swift in Sources */,
 				6CE17D95248829CE00CE4E7D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
