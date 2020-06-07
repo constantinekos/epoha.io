@@ -8,8 +8,19 @@
 
 import SwiftUI
 
+
 struct Home: View {
     @State var showMenu = true
+    
+    @ObservedObject var currency = CurrenciesRate()
+    
+    @State var newsData: [SampleNews] = [
+        SampleNews(title: "Very First Post", keyword: "epoha – keyword", body: "sample body 1", image: "3", verifiedBadge: true, postUrl: "https://epoha.io/samplePost3", showPost: false),
+        SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://epoha.io/samplePost2", showPost: false),
+        SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://epoha.io/samplePost1", showPost: false),
+        SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://epoha.io/samplePost2", showPost: false),
+        SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://epoha.io/samplePost1", showPost: false)
+    ]
     
     var body: some View {
         ZStack {
@@ -20,42 +31,47 @@ struct Home: View {
                 HStack {
                     
                     if showMenu {
+                        
                         ShimmerLogo()
-                        HStack {
+                        
                         Divider()
                             .frame(height: 20)
                         
+                        //CURRENCIES NOW
                         ScrollView(.horizontal, showsIndicators: false) {
-                            Text("$ \(udsNow, specifier: "%.2f") • € \(eurNow, specifier: "%.2f")")
-                            }
+                            Text("$ \(currency.udsNow, specifier: "%.2f") • € \(currency.eurNow, specifier: "%.2f") • zł \(currency.złNow, specifier: "%.2f")")
                         }
+                        
                         
                     } else {
                         HeaderBar()
                     }
                     
                     Spacer()
+                    
                     Button(action: {
                         withAnimation {
-                        self.showMenu.toggle()
+                            self.showMenu.toggle()
                         }
                     }) {
                         Image(systemName: "command")
-                            .foregroundColor(Color("Golden"))
-                            .frame(width: 52, height: 52)
-                            .background(Color("Background"))
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
-                            .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
+                            .modifier(SquereButtons())
                     }
                     
                 }.padding()
                 
                 VStack(spacing: 20) {
-                    CardView()
-                        .padding()
-                    CardView()
-                        .padding()
+                    ForEach(self.newsData) { post in
+                        
+                        //CARD VIEW STARTS HERE
+                        NavigationLink(destination: PostView()) {
+                            CardView()
+                        }
+                        //END OF CARD VIEW
+                            
+                            .padding()
+                    }
+                    
                 }
             }
             
@@ -72,6 +88,7 @@ struct Home_Previews: PreviewProvider {
 //LOGO
 struct ShimmerLogo: View {
     @State var show = false
+    
     var body: some View {
         ZStack{
             Text("epoha.io")
@@ -90,60 +107,15 @@ struct ShimmerLogo: View {
                         .offset(x: self.show ? 180 : -130)
             )
         }
-            
-        .onAppear {
-
-            withAnimation(Animation.default.speed(0.15).delay(0).repeatForever(autoreverses: false)){
-
-                self.show.toggle()
-            }
-        }
-    }
-}
-
-struct CardView: View {
-    var body: some View {
-        VStack {
-            VStack {
-                
-                //IMAGE
-                ZStack(alignment: .bottomTrailing) {
-                    Image("3")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    
-                    HStack {
-                        Text("Keyword")
-                            .foregroundColor(.white)
-                            .padding(4)
-                            
-                            .background(Color.green)
-                            .cornerRadius(2)
-                        
-                        Image(systemName: "checkmark.seal.fill")
-                            .foregroundColor(.blue)
-                            .padding()
-                    }
-                }
-                
-                //TITLE
-                Text("Sample Title eqweqwe qwe wqe 2e e2 e2r2r")
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                
-            }
-            .background(Color("Background"))
-            .frame(width: UIScreen.main.bounds.width - 40)
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .shadow(color: Color("DarkShadow"), radius: 6, x: 8, y: 8)
-            .shadow(color: Color("LightShadow"), radius: 6, x: -8, y: -8)
-        }
-   
+        //        .onAppear {
+        //            withAnimation(Animation.default.speed(0.15).delay(0).repeatForever(autoreverses: false)){
+        //                self.show.toggle()
+        //            }
+        //        }
+        
     }
 }
 
 
-var udsNow = 27.70
-var eurNow = 31.36
+
 

@@ -9,15 +9,20 @@
 import SwiftUI
 
 struct HeaderBar: View {
+    @State var showLoginView = false
+    
     var body: some View {
         HStack {
-            Image(systemName: "person.circle")
-                .foregroundColor(Color("Golden"))
-                .frame(width: 52, height: 52)
-                .background(Color("Background"))
-                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
-                .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
+            Button(action: {
+                self.showLoginView.toggle()
+            }) {
+                Image(systemName: "person.circle")
+                    .modifier(SquereButtons())
+                
+            }.sheet(isPresented: $showLoginView) {
+                LoginView()
+            }
+            
         }
     }
 }
