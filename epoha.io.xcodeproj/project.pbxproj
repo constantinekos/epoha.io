@@ -10,6 +10,7 @@
 		6C021029248BD0C5006BA3AB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C021028248BD0C5006BA3AB /* Data.swift */; };
 		6C44BB89248D05A200624A21 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44BB88248D05A200624A21 /* PostView.swift */; };
 		6C44BB8D248D1F3B00624A21 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44BB8C248D1F3B00624A21 /* CardView.swift */; };
+		6C44BB8F248D67C400624A21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */; };
 		6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C924896A0300D0719E /* LoginView.swift */; };
 		6CCC2EFF248BF4B00069F5B9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */; };
 		6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D92248829CE00CE4E7D /* AppDelegate.swift */; };
@@ -20,12 +21,15 @@
 		6CE17D9F248829D400CE4E7D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE17D9E248829D400CE4E7D /* Preview Assets.xcassets */; };
 		6CE17DA2248829D400CE4E7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE17DA0248829D400CE4E7D /* LaunchScreen.storyboard */; };
 		6CE17DAC2488401000CE4E7D /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17DAB2488401000CE4E7D /* HeaderBar.swift */; };
+		F0F2719600ECD7F205F88547 /* Pods_epoha_io.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3DD76838DABBF5C1B34415 /* Pods_epoha_io.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32F02A0163502A31F518AA31 /* Pods-epoha.io.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epoha.io.release.xcconfig"; path = "Target Support Files/Pods-epoha.io/Pods-epoha.io.release.xcconfig"; sourceTree = "<group>"; };
 		6C021028248BD0C5006BA3AB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6C44BB88248D05A200624A21 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		6C44BB8C248D1F3B00624A21 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C8DC3C924896A0300D0719E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		6CE17D8F248829CE00CE4E7D /* epoha.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epoha.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +42,8 @@
 		6CE17DA1248829D400CE4E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CE17DA3248829D400CE4E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CE17DAB2488401000CE4E7D /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
+		ADD41907E8AACD4DD29CF5A2 /* Pods-epoha.io.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epoha.io.debug.xcconfig"; path = "Target Support Files/Pods-epoha.io/Pods-epoha.io.debug.xcconfig"; sourceTree = "<group>"; };
+		BC3DD76838DABBF5C1B34415 /* Pods_epoha_io.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_epoha_io.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F2719600ECD7F205F88547 /* Pods_epoha_io.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,8 @@
 			children = (
 				6CE17D91248829CE00CE4E7D /* epoha.io */,
 				6CE17D90248829CE00CE4E7D /* Products */,
+				786C16476FFE4220A3D15267 /* Pods */,
+				CEED45A5458B457EB5F34190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +91,7 @@
 				6CE17D9B248829D400CE4E7D /* Assets.xcassets */,
 				6CE17DA0248829D400CE4E7D /* LaunchScreen.storyboard */,
 				6CE17DA3248829D400CE4E7D /* Info.plist */,
+				6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */,
 				6CE17D96248829CE00CE4E7D /* epoha_io.xcdatamodeld */,
 				6CE17D9D248829D400CE4E7D /* Preview Content */,
 			);
@@ -96,6 +106,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		786C16476FFE4220A3D15267 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADD41907E8AACD4DD29CF5A2 /* Pods-epoha.io.debug.xcconfig */,
+				32F02A0163502A31F518AA31 /* Pods-epoha.io.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CEED45A5458B457EB5F34190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC3DD76838DABBF5C1B34415 /* Pods_epoha_io.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CE17DA6248829D400CE4E7D /* Build configuration list for PBXNativeTarget "epoha.io" */;
 			buildPhases = (
+				6F7C49BB0CA0B2F8BAB0CA37 /* [CP] Check Pods Manifest.lock */,
 				6CE17D8B248829CE00CE4E7D /* Sources */,
 				6CE17D8C248829CE00CE4E7D /* Frameworks */,
 				6CE17D8D248829CE00CE4E7D /* Resources */,
+				F7ECCEAB1F883B929E0494A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,12 +185,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE17DA2248829D400CE4E7D /* LaunchScreen.storyboard in Resources */,
+				6C44BB8F248D67C400624A21 /* GoogleService-Info.plist in Resources */,
 				6CE17D9F248829D400CE4E7D /* Preview Assets.xcassets in Resources */,
 				6CE17D9C248829D400CE4E7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F7C49BB0CA0B2F8BAB0CA37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-epoha.io-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7ECCEAB1F883B929E0494A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-epoha.io/Pods-epoha.io-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-epoha.io/Pods-epoha.io-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-epoha.io/Pods-epoha.io-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6CE17D8B248829CE00CE4E7D /* Sources */ = {
@@ -310,6 +383,7 @@
 		};
 		6CE17DA7248829D400CE4E7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADD41907E8AACD4DD29CF5A2 /* Pods-epoha.io.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,6 +404,7 @@
 		};
 		6CE17DA8248829D400CE4E7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32F02A0163502A31F518AA31 /* Pods-epoha.io.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

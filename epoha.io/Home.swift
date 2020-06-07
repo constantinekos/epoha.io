@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import FirebaseAnalytics
 
 struct Home: View {
    
