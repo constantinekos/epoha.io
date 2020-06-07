@@ -10,7 +10,6 @@
 		6C021029248BD0C5006BA3AB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C021028248BD0C5006BA3AB /* Data.swift */; };
 		6C44BB89248D05A200624A21 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44BB88248D05A200624A21 /* PostView.swift */; };
 		6C44BB8D248D1F3B00624A21 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44BB8C248D1F3B00624A21 /* CardView.swift */; };
-		6C8DC3C82489647100D0719E /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C72489647100D0719E /* Shimmer.swift */; };
 		6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C924896A0300D0719E /* LoginView.swift */; };
 		6CCC2EFF248BF4B00069F5B9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */; };
 		6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D92248829CE00CE4E7D /* AppDelegate.swift */; };
@@ -27,7 +26,6 @@
 		6C021028248BD0C5006BA3AB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6C44BB88248D05A200624A21 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		6C44BB8C248D1F3B00624A21 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		6C8DC3C72489647100D0719E /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		6C8DC3C924896A0300D0719E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		6CE17D8F248829CE00CE4E7D /* epoha.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epoha.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +74,6 @@
 				6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */,
 				6CE17D99248829CE00CE4E7D /* Home.swift */,
 				6CE17DAB2488401000CE4E7D /* HeaderBar.swift */,
-				6C8DC3C72489647100D0719E /* Shimmer.swift */,
 				6C8DC3C924896A0300D0719E /* LoginView.swift */,
 				6C44BB8C248D1F3B00624A21 /* CardView.swift */,
 				6C021028248BD0C5006BA3AB /* Data.swift */,
@@ -172,7 +169,6 @@
 			files = (
 				6CE17DAC2488401000CE4E7D /* HeaderBar.swift in Sources */,
 				6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */,
-				6C8DC3C82489647100D0719E /* Shimmer.swift in Sources */,
 				6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */,
 				6CE17D98248829CE00CE4E7D /* epoha_io.xcdatamodeld in Sources */,
 				6CE17D9A248829CE00CE4E7D /* Home.swift in Sources */,
