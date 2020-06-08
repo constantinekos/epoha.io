@@ -35,7 +35,7 @@ struct Home: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     if showMenu {
-                        ShimmerLogo()
+                        ShimmerLogoOff()
                         Divider()
                             .frame(height: 20)
                         
@@ -149,21 +149,21 @@ struct Home_Previews: PreviewProvider {
 }
 
 //LOGO
-struct ShimmerLogo: View {
+struct ShimmerLogoOff: View {
     @State var show = false
     
     var body: some View {
         ZStack{
-            Text("meduza")
+            Text("meduza.io")
                 .foregroundColor(Color("MainBlack"))
                 .font(.title)
                 .fontWeight(.bold)
             
-            Text("meduza")
+            Text("meduza.io")
                 .foregroundColor(Color("Golden"))
                 .font(.title)
                 .fontWeight(.bold)
-                .modifier(ShimmerEffect())
+                .modifier(ShimmerEffectOff())
             
         }
     }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAnalytics
 
 struct LoginView: View {
     var body: some View {
@@ -24,11 +25,11 @@ struct LoginView_Previews: PreviewProvider {
 struct MainLoginView: View {
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
-
+    
     var body: some View{
-
+        
         NavigationView{
-
+            
             VStack{
                 if self.status {
                     Homescreen()
@@ -38,7 +39,7 @@ struct MainLoginView: View {
                             Text("")
                         }
                         .hidden()
-
+                        
                         Login(show: self.$show)
                     }
                 }
@@ -47,9 +48,9 @@ struct MainLoginView: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .onAppear {
-
+                
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
-
+                    
                     self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
             }
@@ -58,17 +59,18 @@ struct MainLoginView: View {
 }
 
 struct Homescreen: View {
-    var body: some View{
+    var body: some View {
         ZStack {
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
             VStack{
-
+                ShimmerLogoOn()
+                
                 Text("Logged successfully")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color("MainText"))
-
+                
                 Button(action: {
                     try! Auth.auth().signOut()
                     UserDefaults.standard.set(false, forKey: "status")
@@ -91,21 +93,21 @@ struct Homescreen: View {
 }
 
 struct Login: View {
-
+    
     @State var email = ""
     @State var pass = ""
     @State var visible = false
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
-
+    
     var body: some View {
         ZStack{
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
-
+            
             ZStack(alignment: .topTrailing) {
-
+                
                 GeometryReader {_ in
                     VStack{
                         RoundedRectangle(cornerRadius: 4, style: .continuous)
@@ -113,27 +115,24 @@ struct Login: View {
                             .frame(width: 32, height: 8)
                             .padding(.top, 10)
                         
-                        Image("3")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width - 50)
+                        ShimmerLogoOn()
                             .padding(.top, 20)
-
+                        
                         Text("Log in to your account")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(Color("MainText"))
                             .padding(.top, 35)
-
+                        
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                             .padding(.top, 25)
-
+                        
                         HStack(spacing: 15) {
                             VStack{
-
+                                
                                 if self.visible {
                                     TextField("Password", text: self.$pass)
                                         .autocapitalization(.none)
@@ -149,15 +148,15 @@ struct Login: View {
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                                     .foregroundColor(Color("MainText"))
                             }
-
+                            
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                         .padding(.top, 25)
-
+                        
                         HStack{
                             Spacer()
-
+                            
                             Button(action: {
                                 self.reset()
                             }) {
@@ -167,7 +166,7 @@ struct Login: View {
                             }
                         }
                         .padding(.top, 20)
-
+                        
                         Button(action: {
                             self.verify()
                         }) {
@@ -185,7 +184,7 @@ struct Login: View {
                     .padding(.horizontal, 25)
                     Spacer()
                 }
-
+                
                 Button(action: {
                     self.show.toggle()
                 }) {
@@ -201,14 +200,14 @@ struct Login: View {
             }
         }
     }
-
+    
     func verify() {
         if self.email != "" && self.pass != ""{
-
+            
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
-
+                
                 if err != nil{
-
+                    
                     self.error = err!.localizedDescription
                     self.alert.toggle()
                     return
@@ -222,11 +221,11 @@ struct Login: View {
             self.alert.toggle()
         }
     }
-
+    
     func reset(){
         if self.email != "" {
             Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in
-
+                
                 if err != nil {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
@@ -242,8 +241,8 @@ struct Login: View {
     }
 }
 
-struct SignUp : View {
-
+struct SignUp: View {
+    
     @State var email = ""
     @State var pass = ""
     @State var repass = ""
@@ -252,18 +251,18 @@ struct SignUp : View {
     @Binding var show: Bool
     @State var alert = false
     @State var error = ""
-
+    
     var body: some View{
-
+        
         ZStack {
             Color("Background")
                 .edgesIgnoringSafeArea(.all)
             
             ZStack(alignment: .topLeading) {
-
-                GeometryReader{_ in
-
-                    VStack{
+                
+                GeometryReader {_ in
+                    
+                    VStack {
                         Text("Create new account")
                             .font(.title)
                             .fontWeight(.bold)
@@ -275,17 +274,17 @@ struct SignUp : View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width - 50)
                             .padding(.top, 10)
-
+                        
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                             .padding(.top, 25)
-
+                        
                         HStack(spacing: 15) {
-
+                            
                             VStack{
-
+                                
                                 if self.visible {
                                     TextField("Password", text: self.$pass)
                                         .autocapitalization(.none)
@@ -295,7 +294,7 @@ struct SignUp : View {
                                         .autocapitalization(.none)
                                 }
                             }
-
+                            
                             Button(action: {
                                 self.visible.toggle()
                             }) {
@@ -306,9 +305,9 @@ struct SignUp : View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Golden") : Color("MainText"), lineWidth: 2))
                         .padding(.top, 25)
-
+                        
                         HStack(spacing: 15){
-
+                            
                             VStack{
                                 if self.revisible{
                                     TextField("Re-enter password", text: self.$repass)
@@ -319,7 +318,7 @@ struct SignUp : View {
                                         .autocapitalization(.none)
                                 }
                             }
-
+                            
                             Button(action: {
                                 self.revisible.toggle()
                             }) {
@@ -344,12 +343,12 @@ struct SignUp : View {
                         .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
                         .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
                         .padding(.top, 20)
-                        
+                        Spacer()
                     }
                     .padding(.horizontal, 25)
-                    Spacer()
+                    
                 }
-
+                
                 Button(action: {
                     self.show.toggle()
                 }) {
@@ -359,29 +358,28 @@ struct SignUp : View {
                 }
                 .padding()
             }
-
+            
             if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-
     func register() {
         if self.email != ""{
-
+            
             if self.pass == self.repass{
-
+                
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-
+                    
                     if err != nil {
                         self.error = err!.localizedDescription
                         self.alert.toggle()
                         return
                     }
-
+                    
                     print("success")
-
+                    
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }
@@ -397,32 +395,32 @@ struct SignUp : View {
 }
 
 struct ErrorView : View {
-
+    
     @Binding var alert: Bool
     @Binding var error: String
-
+    
     var body: some View{
-
+        
         GeometryReader{_ in
-
+            
             VStack{
-
+                
                 HStack{
-
+                    
                     Text(self.error == "RESET" ? "Message" : "Error")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
-
+                    
                     Spacer()
                 }
                 .padding(.horizontal, 25)
-
+                
                 Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
                     .foregroundColor(Color.white)
                     .padding(.top)
                     .padding(.horizontal, 25)
-
+                
                 Button(action: {
                     self.alert.toggle()
                 }) {
@@ -434,7 +432,7 @@ struct ErrorView : View {
                 .background(Color.white)
                 .cornerRadius(10)
                 .padding(.top, 25)
-
+                
             }
             .padding(.vertical, 25)
             .frame(width: UIScreen.main.bounds.width - 70)

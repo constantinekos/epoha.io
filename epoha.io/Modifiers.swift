@@ -23,7 +23,7 @@ struct SquereButtons: ViewModifier {
 
 
 
-struct ShimmerEffect: ViewModifier {
+struct ShimmerEffectOff: ViewModifier {
     @State var show = false
     func body(content: Content) -> some View {
         content
@@ -41,5 +41,40 @@ struct ShimmerEffect: ViewModifier {
     }
 }
 
+struct ShimmerLogoOn: View {
+    @State var show = false
+    
+    var body: some View {
+        ZStack{
+            Text("meduza.io")
+                .foregroundColor(Color("MainBlack"))
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Text("meduza.io")
+                .foregroundColor(Color("Golden"))
+                .font(.title)
+                .fontWeight(.bold)
+                .modifier(ShimmerEffectOn())
+            
+        }
+    }
+}
 
-
+struct ShimmerEffectOn: ViewModifier {
+    @State var show = false
+    func body(content: Content) -> some View {
+        content
+            .mask(
+                Capsule()
+                    .fill(LinearGradient(gradient: .init(colors: [.clear,.black,.clear]), startPoint: .top, endPoint: .bottom))
+                    .rotationEffect(.init(degrees: 30))
+                    .offset(x: self.show ? 300 : -230)
+        )
+            .onAppear {
+                withAnimation(Animation.default.speed(0.15).delay(0).repeatForever(autoreverses: false)){
+                    self.show.toggle()
+                }
+        }
+    }
+}
