@@ -30,17 +30,11 @@ struct MainLoginView: View {
         NavigationView{
 
             VStack{
-
-                if self.status{
-
+                if self.status {
                     Homescreen()
-                }
-                else{
-
-                    ZStack{
-
+                } else {
+                    ZStack {
                         NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
-
                             Text("")
                         }
                         .hidden()
@@ -63,40 +57,41 @@ struct MainLoginView: View {
     }
 }
 
-struct Homescreen : View {
-
+struct Homescreen: View {
     var body: some View{
+        ZStack {
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
+            VStack{
 
-        VStack{
+                Text("Logged successfully")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("MainText"))
 
-            Text("Logged successfully")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black.opacity(0.7))
-
-            Button(action: {
-
-                try! Auth.auth().signOut()
-                UserDefaults.standard.set(false, forKey: "status")
-                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-
-            }) {
-
-                Text("Log out")
-                    .foregroundColor(.white)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 50)
+                Button(action: {
+                    try! Auth.auth().signOut()
+                    UserDefaults.standard.set(false, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                }) {
+                    Text("Log out")
+                        .foregroundColor(Color("Golden"))
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                }
+                .background(Color("Background"))
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
+                .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
+                .padding(.top, 20)
+                
             }
-            .background(Color("Color"))
-            .cornerRadius(10)
-            .padding(.top, 25)
         }
     }
 }
 
-struct Login : View {
+struct Login: View {
 
-    @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var pass = ""
     @State var visible = false
@@ -104,37 +99,42 @@ struct Login : View {
     @State var alert = false
     @State var error = ""
 
-    var body: some View{
-
+    var body: some View {
         ZStack{
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
 
             ZStack(alignment: .topTrailing) {
 
-                GeometryReader{_ in
+                GeometryReader {_ in
                     VStack{
-
+                        RoundedRectangle(cornerRadius: 4, style: .continuous)
+                            .foregroundColor(.gray)
+                            .frame(width: 32, height: 8)
+                            .padding(.top, 10)
+                        
                         Image("3")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                            .padding(.top, 20)
 
                         Text("Log in to your account")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(self.color)
+                            .foregroundColor(Color("MainText"))
                             .padding(.top, 35)
 
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
-                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                             .padding(.top, 25)
 
-                        HStack(spacing: 15){
-
+                        HStack(spacing: 15) {
                             VStack{
 
-                                if self.visible{
+                                if self.visible {
                                     TextField("Password", text: self.$pass)
                                         .autocapitalization(.none)
                                 }
@@ -143,17 +143,16 @@ struct Login : View {
                                         .autocapitalization(.none)
                                 }
                             }
-
                             Button(action: {
                                 self.visible.toggle()
                             }) {
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(self.color)
+                                    .foregroundColor(Color("MainText"))
                             }
 
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                         .padding(.top, 25)
 
                         HStack{
@@ -164,7 +163,7 @@ struct Login : View {
                             }) {
                                 Text("Forget password")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Color("Color"))
+                                    .foregroundColor(Color("MainText"))
                             }
                         }
                         .padding(.top, 20)
@@ -173,24 +172,26 @@ struct Login : View {
                             self.verify()
                         }) {
                             Text("Log in")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("Golden"))
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                        .background(Color("Color"))
-                        .cornerRadius(10)
-                        .padding(.top, 25)
+                        .background(Color("Background"))
+                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
+                        .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
+                        .padding(.top, 20)
                     }
                     .padding(.horizontal, 25)
+                    Spacer()
                 }
 
                 Button(action: {
                     self.show.toggle()
                 }) {
-
                     Text("Register")
                         .fontWeight(.bold)
-                        .foregroundColor(Color("MainBlack"))
+                        .foregroundColor(Color("Golden"))
                 }
                 .padding()
             }
@@ -201,8 +202,7 @@ struct Login : View {
         }
     }
 
-    func verify(){
-
+    func verify() {
         if self.email != "" && self.pass != ""{
 
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
@@ -213,26 +213,21 @@ struct Login : View {
                     self.alert.toggle()
                     return
                 }
-
                 print("success")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }
-        }
-        else{
+        } else {
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
         }
     }
 
     func reset(){
-
-        if self.email != ""{
-
+        if self.email != "" {
             Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in
 
-                if err != nil{
-
+                if err != nil {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
                     return
@@ -240,8 +235,7 @@ struct Login : View {
                 self.error = "RESET"
                 self.alert.toggle()
             }
-        }
-        else{
+        } else {
             self.error = "Email Id is empty"
             self.alert.toggle()
         }
@@ -250,49 +244,53 @@ struct Login : View {
 
 struct SignUp : View {
 
-    @State var color = Color.black.opacity(0.7)
     @State var email = ""
     @State var pass = ""
     @State var repass = ""
     @State var visible = false
     @State var revisible = false
-    @Binding var show : Bool
+    @Binding var show: Bool
     @State var alert = false
     @State var error = ""
 
     var body: some View{
 
-        ZStack{
-
+        ZStack {
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
+            
             ZStack(alignment: .topLeading) {
 
                 GeometryReader{_ in
 
                     VStack{
-
-                        Image("3")
-
-                        Text("Log in to your account")
+                        Text("Create new account")
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(self.color)
-                            .padding(.top, 35)
+                            .foregroundColor(Color("MainText"))
+                            .padding(.top, 10)
+                        
+                        Image("3")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                            .padding(.top, 10)
 
                         TextField("Email", text: self.$email)
                             .autocapitalization(.none)
                             .padding()
-                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                             .padding(.top, 25)
 
-                        HStack(spacing: 15){
+                        HStack(spacing: 15) {
 
                             VStack{
 
-                                if self.visible{
+                                if self.visible {
                                     TextField("Password", text: self.$pass)
                                         .autocapitalization(.none)
                                 }
-                                else{
+                                else {
                                     SecureField("Password", text: self.$pass)
                                         .autocapitalization(.none)
                                 }
@@ -302,23 +300,22 @@ struct SignUp : View {
                                 self.visible.toggle()
                             }) {
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(self.color)
+                                    .foregroundColor(Color("MainText"))
                             }
-
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Golden") : Color("MainText"), lineWidth: 2))
                         .padding(.top, 25)
 
                         HStack(spacing: 15){
 
                             VStack{
                                 if self.revisible{
-                                    TextField("Re-enter", text: self.$repass)
+                                    TextField("Re-enter password", text: self.$repass)
                                         .autocapitalization(.none)
                                 }
                                 else{
-                                    SecureField("Re-enter", text: self.$repass)
+                                    SecureField("Re-enter password", text: self.$repass)
                                         .autocapitalization(.none)
                                 }
                             }
@@ -327,27 +324,30 @@ struct SignUp : View {
                                 self.revisible.toggle()
                             }) {
                                 Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(self.color)
+                                    .foregroundColor(Color("MainText"))
                             }
-
                         }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Golden") : Color("MainText"),lineWidth: 2))
                         .padding(.top, 25)
-
+                        
                         Button(action: {
                             self.register()
                         }) {
                             Text("Register")
-                                .foregroundColor(.white)
+                                .foregroundColor(Color("Golden"))
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
                         }
-                        .background(Color("Color"))
-                        .cornerRadius(10)
-                        .padding(.top, 25)
+                        .background(Color("Background"))
+                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .shadow(color: Color("DarkShadow"), radius: 6, x: 6, y: 6)
+                        .shadow(color: Color("LightShadow"), radius: 6, x: -6, y: -6)
+                        .padding(.top, 20)
+                        
                     }
                     .padding(.horizontal, 25)
+                    Spacer()
                 }
 
                 Button(action: {
@@ -355,28 +355,26 @@ struct SignUp : View {
                 }) {
                     Image(systemName: "chevron.left")
                         .font(.title)
-                        .foregroundColor(Color("Color"))
+                        .foregroundColor(Color("Golden"))
                 }
                 .padding()
             }
 
-            if self.alert{
+            if self.alert {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
         .navigationBarBackButtonHidden(true)
     }
 
-    func register(){
-
+    func register() {
         if self.email != ""{
 
             if self.pass == self.repass{
 
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
 
-                    if err != nil{
-
+                    if err != nil {
                         self.error = err!.localizedDescription
                         self.alert.toggle()
                         return
@@ -387,27 +385,21 @@ struct SignUp : View {
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }
-            }
-            else{
-
+            } else {
                 self.error = "Password mismatch"
                 self.alert.toggle()
             }
-        }
-        else{
-
+        } else {
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
         }
     }
 }
 
-
 struct ErrorView : View {
 
-    @State var color = Color.black.opacity(0.7)
-    @Binding var alert : Bool
-    @Binding var error : String
+    @Binding var alert: Bool
+    @Binding var error: String
 
     var body: some View{
 
@@ -420,36 +412,33 @@ struct ErrorView : View {
                     Text(self.error == "RESET" ? "Message" : "Error")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(self.color)
+                        .foregroundColor(Color.white)
 
                     Spacer()
                 }
                 .padding(.horizontal, 25)
 
                 Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
-                    .foregroundColor(self.color)
+                    .foregroundColor(Color.white)
                     .padding(.top)
                     .padding(.horizontal, 25)
 
                 Button(action: {
-
                     self.alert.toggle()
-
                 }) {
-
                     Text(self.error == "RESET" ? "Ok" : "Cancel")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("Golden"))
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
                 }
-                .background(Color("Color"))
+                .background(Color.white)
                 .cornerRadius(10)
                 .padding(.top, 25)
 
             }
             .padding(.vertical, 25)
             .frame(width: UIScreen.main.bounds.width - 70)
-            .background(Color.white)
+            .background(Color.black)
             .cornerRadius(15)
         }
         .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))

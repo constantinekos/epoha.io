@@ -49,7 +49,7 @@ class SampleNews: Identifiable {
     }
     
     func expandBody() {
-        self.showPost.toggle()
+        showPost.toggle()
     }
     
     func sharePost() {
@@ -61,21 +61,21 @@ class SampleNews: Identifiable {
 }
 
 
-//SAMPLE DATA "https://epoha.io/sample"
+//SAMPLE DATA "https://meduza.io/sample"
 //var newsData: [SampleNews] = [
-//    SampleNews(title: "Very First Post", keyword: "epoha", body: "sample body 1", image: "3", verifiedBadge: true, postUrl: "https://epoha.io/samplePost3"),
-//    SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://epoha.io/samplePost2"),
-//    SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://epoha.io/samplePost1"),
-//    SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://epoha.io/samplePost2"),
-//    SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://epoha.io/samplePost1")
+//    SampleNews(title: "Very First Post", keyword: "epoha", body: "sample body 1", image: "3", verifiedBadge: true, postUrl: "https://meduza.io/samplePost3"),
+//    SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://meduza.io/samplePost2"),
+//    SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://meduza.io/samplePost1"),
+//    SampleNews(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://meduza.io/samplePost2"),
+//    SampleNews(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://meduza.io/samplePost1")
 //]
 
 final class SampleData: ObservableObject {
     
      @Published var news: [SampleNews] = [
-        .init(title: "Very First Post", keyword: "epoha", body: "sample body 1", image: "3", verifiedBadge: true, postUrl: "https://epoha.io/samplePost1", showPost: false),
-        .init(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://epoha.io/samplePost2", showPost: false),
-        .init(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://epoha.io/samplePost3", showPost: false)
+        .init(title: "Very First Post", keyword: "meduza", body: "sample body 1", image: "3", verifiedBadge: true, postUrl: "https://meduza.io/samplePost1", showPost: false),
+        .init(title: "Second post", keyword: "Zelenskyi", body: "Some news about the President", image: "2", verifiedBadge: true, postUrl: "https://meduza.io/samplePost2", showPost: false),
+        .init(title: "Poroshenko kurwa bleat skolko mozhno bylo worowat'", keyword: "Poroshenko", body: "Some cool body", image: "1", verifiedBadge: false, postUrl: "https://meduza.io/samplePost3", showPost: false)
     
     ]
 }
@@ -94,7 +94,7 @@ struct RealNews: Identifiable, Decodable {
 }
 
 
-let newsUrl = "https://epoha.io/example.json"
+let newsUrl = "https://meduza.io/example.json"
 
 class NewsData: ObservableObject {
     @Published var news = [RealNews]()
@@ -110,7 +110,7 @@ class NewsData: ObservableObject {
     }
     func sharePost() {
         
-        let url1 = URL(string: "https://epoha.io/sample")
+        let url1 = URL(string: "https://meduza.io/example.json")
         let av = UIActivityViewController(activityItems: [url1!], applicationActivities: nil)
         
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
