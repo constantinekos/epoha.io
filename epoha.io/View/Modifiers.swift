@@ -21,8 +21,6 @@ struct SquereButtons: ViewModifier {
     }
 }
 
-
-
 struct ShimmerEffectOff: ViewModifier {
     @State var show = false
     func body(content: Content) -> some View {
@@ -46,12 +44,12 @@ struct ShimmerLogoOn: View {
     
     var body: some View {
         ZStack{
-            Text("meduza.io")
+            Text("epoha.io")
                 .foregroundColor(Color("MainBlack"))
                 .font(.title)
                 .fontWeight(.bold)
             
-            Text("meduza.io")
+            Text("epoha.io")
                 .foregroundColor(Color("Golden"))
                 .font(.title)
                 .fontWeight(.bold)
@@ -76,5 +74,13 @@ struct ShimmerEffectOn: ViewModifier {
                     self.show.toggle()
                 }
         }
+    }
+}
+
+struct Shadows: ViewModifier {
+    func body(content: Content) -> some View {
+    content
+        .shadow(color: Color("DarkShadow"), radius: 6, x: 8, y: 8)
+        .shadow(color: Color("LightShadow"), radius: 6, x: -8, y: -8)
     }
 }

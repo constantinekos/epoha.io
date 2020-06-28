@@ -29,6 +29,19 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
+					<key>CFBundleURLTypes</key>
+					<array>
+						<dict>
+							<key>CFBundleURLSchemes</key>
+							<array>
+								<string>fb180597350053808</string>
+							</array>
+						</dict>
+					</array>
+					<key>FacebookAppID</key>
+					<string>180597350053808</string>
+					<key>FacebookDisplayName</key>
+					<string>epoha.io</string>
 					<key>UISceneConfigurationName</key>
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
