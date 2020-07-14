@@ -9,8 +9,11 @@
 import SwiftUI
 import UserNotifications
 
+//MARK: - Menu bar with navigation -
+
 struct HeaderBar: View {
     @State var showLoginView = false
+    @State var showFAQ = false
     
     var body: some View {
         HStack(spacing: 20) {
@@ -25,18 +28,19 @@ struct HeaderBar: View {
             }
             
             Button(action: {
-                UNUserNotificationCenter.current()
-                .requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                
-                }
+//                UNUserNotificationCenter.current()
+//                .requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                    if success {
+//                        print("All set!")
+//                    } else if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//
+//                }
                 let content = UNMutableNotificationContent()
                 content.title = "Its time to read news!"
                 content.subtitle = "Some cool news"
+                content.body = "Some text in body"
                 content.sound = UNNotificationSound.default
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -45,6 +49,17 @@ struct HeaderBar: View {
                 Image(systemName: "bell.circle")
                 .modifier(SquereButtons())
             }
+            
+            Button(action: {
+                self.showFAQ.toggle()
+            }) {
+                Image(systemName: "questionmark.circle")
+                    .modifier(SquereButtons())
+                
+                }.sheet(isPresented: $showFAQ) {
+                FAQView()
+            }
+            
 
         }
     }

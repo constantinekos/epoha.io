@@ -10,10 +10,15 @@
 		6C021029248BD0C5006BA3AB /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C021028248BD0C5006BA3AB /* Currencies.swift */; };
 		6C44BB89248D05A200624A21 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44BB88248D05A200624A21 /* PostView.swift */; };
 		6C44BB8F248D67C400624A21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */; };
+		6C470B4424BCCD870018E27E /* WebReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C470B4324BCCD870018E27E /* WebReadingView.swift */; };
 		6C76F10F24A8C64C00E139C4 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76F10E24A8C64C00E139C4 /* News.swift */; };
 		6C76F11124A8C77E00E139C4 /* FetchPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76F11024A8C77E00E139C4 /* FetchPosts.swift */; };
 		6C76F11424A8D0FB00E139C4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6C76F11324A8D0FB00E139C4 /* SDWebImageSwiftUI */; };
+		6C819B5724B8E31A00C6F9B0 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C819B5524B8E31900C6F9B0 /* PlayfairDisplay-Regular.ttf */; };
+		6C819B5824B8E31A00C6F9B0 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C819B5624B8E31A00C6F9B0 /* PlayfairDisplay-Bold.ttf */; };
+		6C82955A24B481B500F45A36 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82955924B481B500F45A36 /* FAQView.swift */; };
 		6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DC3C924896A0300D0719E /* LoginView.swift */; };
+		6C9FD95A24B36F3700CBACDB /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9FD95924B36F3700CBACDB /* AdView.swift */; };
 		6CCC2EFF248BF4B00069F5B9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */; };
 		6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D92248829CE00CE4E7D /* AppDelegate.swift */; };
 		6CE17D95248829CE00CE4E7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */; };
@@ -31,9 +36,14 @@
 		6C021028248BD0C5006BA3AB /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		6C44BB88248D05A200624A21 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C470B4324BCCD870018E27E /* WebReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReadingView.swift; sourceTree = "<group>"; };
 		6C76F10E24A8C64C00E139C4 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		6C76F11024A8C77E00E139C4 /* FetchPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPosts.swift; sourceTree = "<group>"; };
+		6C819B5524B8E31900C6F9B0 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		6C819B5624B8E31A00C6F9B0 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		6C82955924B481B500F45A36 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		6C8DC3C924896A0300D0719E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6C9FD95924B36F3700CBACDB /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		6CCC2EFE248BF4B00069F5B9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		6CE17D8F248829CE00CE4E7D /* epoha.io.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epoha.io.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE17D92248829CE00CE4E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +79,10 @@
 				6CE17DAB2488401000CE4E7D /* HeaderBar.swift */,
 				6C8DC3C924896A0300D0719E /* LoginView.swift */,
 				6C44BB88248D05A200624A21 /* PostView.swift */,
+				6C9FD95924B36F3700CBACDB /* AdView.swift */,
 				6CE17D99248829CE00CE4E7D /* Home.swift */,
+				6C82955924B481B500F45A36 /* FAQView.swift */,
+				6C470B4324BCCD870018E27E /* WebReadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +102,15 @@
 				6C76F11024A8C77E00E139C4 /* FetchPosts.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6C819B5424B8E2FB00C6F9B0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6C819B5624B8E31A00C6F9B0 /* PlayfairDisplay-Bold.ttf */,
+				6C819B5524B8E31900C6F9B0 /* PlayfairDisplay-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		6CE17D86248829CE00CE4E7D = {
@@ -118,6 +140,7 @@
 				6CE17D92248829CE00CE4E7D /* AppDelegate.swift */,
 				6CE17D94248829CE00CE4E7D /* SceneDelegate.swift */,
 				6CE17D9B248829D400CE4E7D /* Assets.xcassets */,
+				6C819B5424B8E2FB00C6F9B0 /* Fonts */,
 				6CE17DA0248829D400CE4E7D /* LaunchScreen.storyboard */,
 				6CE17DA3248829D400CE4E7D /* Info.plist */,
 				6C44BB8E248D67C400624A21 /* GoogleService-Info.plist */,
@@ -218,6 +241,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C819B5824B8E31A00C6F9B0 /* PlayfairDisplay-Bold.ttf in Resources */,
+				6C819B5724B8E31A00C6F9B0 /* PlayfairDisplay-Regular.ttf in Resources */,
 				6CE17DA2248829D400CE4E7D /* LaunchScreen.storyboard in Resources */,
 				6C44BB8F248D67C400624A21 /* GoogleService-Info.plist in Resources */,
 				6CE17D9F248829D400CE4E7D /* Preview Assets.xcassets in Resources */,
@@ -277,12 +302,15 @@
 				6CE17DAC2488401000CE4E7D /* HeaderBar.swift in Sources */,
 				6C8DC3CA24896A0300D0719E /* LoginView.swift in Sources */,
 				6CE17D93248829CE00CE4E7D /* AppDelegate.swift in Sources */,
+				6C9FD95A24B36F3700CBACDB /* AdView.swift in Sources */,
 				6CE17D98248829CE00CE4E7D /* epoha_io.xcdatamodeld in Sources */,
 				6C76F11124A8C77E00E139C4 /* FetchPosts.swift in Sources */,
 				6CE17D9A248829CE00CE4E7D /* Home.swift in Sources */,
 				6CE17D95248829CE00CE4E7D /* SceneDelegate.swift in Sources */,
 				6CCC2EFF248BF4B00069F5B9 /* Modifiers.swift in Sources */,
 				6C44BB89248D05A200624A21 /* PostView.swift in Sources */,
+				6C470B4424BCCD870018E27E /* WebReadingView.swift in Sources */,
+				6C82955A24B481B500F45A36 /* FAQView.swift in Sources */,
 				6C76F10F24A8C64C00E139C4 /* News.swift in Sources */,
 				6C021029248BD0C5006BA3AB /* Currencies.swift in Sources */,
 			);
@@ -433,7 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.epoha.epoha-io";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.epoha.epoha-io";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

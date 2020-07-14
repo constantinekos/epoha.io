@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 
+//MARK: - All the visual Modifiers here -
+
 struct SquereButtons: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -80,7 +82,7 @@ struct ShimmerEffectOn: ViewModifier {
 struct Shadows: ViewModifier {
     func body(content: Content) -> some View {
     content
-        .shadow(color: Color("DarkShadow"), radius: 6, x: 8, y: 8)
-        .shadow(color: Color("LightShadow"), radius: 6, x: -8, y: -8)
+        .shadow(color: Color("DarkShadow"), radius: 8, x: 8, y: 8)
+        .shadow(color: Color("LightShadow"), radius: 8, x: -8, y: -8)
     }
 }

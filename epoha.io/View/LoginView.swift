@@ -10,6 +10,8 @@ import SwiftUI
 import Firebase
 import FirebaseAnalytics
 
+//MARK: - Login view, probably useless -
+
 struct LoginView: View {
     var body: some View {
         MainLoginView()

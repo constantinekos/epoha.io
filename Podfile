@@ -8,4 +8,5 @@ target 'epoha.io' do
   # Pods for epoha.io
 pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
+pod 'Google-Mobile-Ads-SDK'
 end
