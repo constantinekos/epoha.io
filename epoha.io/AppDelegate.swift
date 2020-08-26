@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        UISwitch.appearance().onTintColor = UIColor(named: "MainText")
+        UISwitch.appearance().thumbTintColor = UIColor(named: "Background")
+        
+        //UISegmentedControl.appearance().backgroundColor = UIColor.systemPink
         return true
     }
 

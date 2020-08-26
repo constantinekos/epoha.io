@@ -14,40 +14,29 @@ import UserNotifications
 struct HeaderBar: View {
     @State var showLoginView = false
     @State var showFAQ = false
+    @State var readWebVersion = false
     
     var body: some View {
         HStack(spacing: 20) {
-            Button(action: {
-                self.showLoginView.toggle()
-            }) {
-                Image(systemName: "person.circle")
-                    .modifier(SquereButtons())
-                
-            }.sheet(isPresented: $showLoginView) {
-                LoginView()
-            }
+            
+//            Button(action: {
+//                self.showLoginView.toggle()
+//            }) {
+//                Image(systemName: "person.circle")
+//                    .modifier(SquereButtons())
+//
+//            }.sheet(isPresented: $showLoginView) {
+//                LoginView()
+//            }
             
             Button(action: {
-//                UNUserNotificationCenter.current()
-//                .requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-//                    if success {
-//                        print("All set!")
-//                    } else if let error = error {
-//                        print(error.localizedDescription)
-//                    }
-//
-//                }
-                let content = UNMutableNotificationContent()
-                content.title = "Its time to read news!"
-                content.subtitle = "Some cool news"
-                content.body = "Some text in body"
-                content.sound = UNNotificationSound.default
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request)
+                self.readWebVersion.toggle()
             }) {
-                Image(systemName: "bell.circle")
+                Image(systemName: "safari")
+                .foregroundColor(Color("Golden"))
                 .modifier(SquereButtons())
+            }.sheet(isPresented: $readWebVersion) {
+                WebReadingView()
             }
             
             Button(action: {

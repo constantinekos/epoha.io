@@ -9,4 +9,5 @@ target 'epoha.io' do
 pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
 pod 'Google-Mobile-Ads-SDK'
+pod 'Alamofire'
 end

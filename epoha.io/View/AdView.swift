@@ -8,6 +8,7 @@
 
 import SwiftUI
 import GoogleMobileAds
+import Firebase
 
 //MARK: - AdView | Turn off and on via Contentful API -
 
@@ -15,24 +16,31 @@ struct AdView: View {
     @State var width = UIScreen.main.bounds.width
     @State var height = UIScreen.main.bounds.height
     @ObservedObject var userSettings = UserSettings()
+    
     var body: some View {
         VStack(spacing: 0) {
             AdMob()
-                .frame(height: self.height / 2)
+                //.frame(height: self.height - 300)
+                .onTapGesture {
+                    Analytics.logEvent("full-banner-click", parameters: nil)
+            }
             
             Text("Google Advertise")
-                .font(userSettings.monkeyBusinessFont ? .custom("PlayfairDisplay-Regular", size: 16) : nil)
+                .font(userSettings.monkeyBusinessFont ? .custom("PlayfairDisplay-Regular", size: userSettings.titleFontSize) : nil)
                 .fontWeight(.bold)
                 .padding()
         }
+    
             .background(Color("Background"))
             .foregroundColor(Color("Golden"))
-            .frame(width: self.width - 40)
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+            .frame(width: self.width - 40, height: self.height / 2)
+            //.clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .modifier(Shadows())
             .padding()
     }
 }
+
 
 struct AdView_Previews: PreviewProvider {
     static var previews: some View {
@@ -47,6 +55,7 @@ struct AdMob: UIViewRepresentable {
         //banner.adUnitID = "ca-app-pub-6817026063000376/7555820227" - my id
         //info.plist -> ca-app-pub-6817026063000376~9443616966 - my id
         banner.rootViewController = UIApplication.shared.windows.first?.rootViewController
+        //banner.adSize
         DispatchQueue.main.async {
             banner.load(GADRequest())
         }
