@@ -29,6 +29,7 @@ struct PostView: View {
                 WebImage(url: URL(string: self.postDetails.image))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    
 
                 HStack {
                     Button(action: {
@@ -91,8 +92,10 @@ struct PostView: View {
                         .lineSpacing(2)
                         .padding()
                 
-                //VideoPlayer(player: AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=m4JwEbSSflg")!))
+                //TODO: Uncomment that for SwiftUI 2.0
+//                VideoPlayer(player: AVPlayer(url: URL(string: "https://multikino.club/sample.mp4")!))
                 
+                // Uncomment that after the fixing News Model
 //                MapView(postDetails: postDetails)
 //                    .frame(height: 300)
 //                    .padding(.bottom)

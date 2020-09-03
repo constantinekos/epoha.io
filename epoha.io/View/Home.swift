@@ -24,7 +24,7 @@ struct Home: View {
     
     @State var newPost = false
     
-    private var postRange1 = 0...4
+    var postRange = 0...4
     
     
     var body: some View {
@@ -74,9 +74,6 @@ struct Home: View {
                 }
                 .padding(.horizontal)
                 
-                
-
-                
                 //MARK: CARD VIEW STARTS HERE
                 ZStack {
                     if self.posts.posts.isEmpty {
@@ -84,7 +81,7 @@ struct Home: View {
                         
                     } else {
                         VStack {
-                            ForEach(self.posts.posts[postRange1]) { i in
+                            ForEach(self.posts.posts[postRange]) { i in
                                 PostView(postDetails: i)
                             }
                             AdView()
@@ -99,11 +96,22 @@ struct Home: View {
 //                                }
 //                                AdView()
 //                            }
-
+                            
                         }
-
+                        
                     }
+//                    GeometryReader { g -> Text in
+//                        let frame = g.frame(in: CoordinateSpace.global)
+//                        if frame.origin.y > 250 {
+////                            postRange = 0...20
+//                            self.posts.fetchPosts()
+//                            return Text("Loading...")
+//                        } else {
+//                            return Text("")
+//                        }
+//                    }.frame(height: 0).padding(.leading, 160)
                 }
+            }
                 .onAppear {
                     URLCache.shared.removeAllCachedResponses()
                     self.posts.fetchPosts()
@@ -120,11 +128,8 @@ struct Home: View {
                     
                     print("### LANGUAGE: \(self.userSettings.setLang)")
                 }
-            }
-                
         .background(Color("Background").edgesIgnoringSafeArea(.all))
         //}
-        
     }
     //MARK: - Track screen for Google Analytics
     private func trackScreen(name: String, parameters: [String: Any]?) {

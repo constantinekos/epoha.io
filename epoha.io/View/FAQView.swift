@@ -14,7 +14,6 @@ import Combine
 struct FAQView: View {
     @State var width = UIScreen.main.bounds.width
     @ObservedObject var userSettings = UserSettings()
-    
     @State private var language = 1
 
     var body: some View {
@@ -120,7 +119,7 @@ struct FAQView: View {
         Analytics.setScreenName(name, screenClass: nil)
         Analytics.logEvent(name, parameters: parameters)
     }
-    func setLanguage() {
+    private func setLanguage() {
         if language == 0 {
             userSettings.setLang = 0
         } else if language == 1 {
